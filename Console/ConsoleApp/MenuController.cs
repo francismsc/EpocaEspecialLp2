@@ -1,7 +1,7 @@
 using System;
-using Lp2EpocaEspecial.Common;
+using EpocaEspecialLp2.Common;
 
-namespace Lp2EpocaEspecial.ConsoleApp
+namespace EpocaEspecialLp2.ConsoleApp
 {
     public class MenuController: IMenuController
     {
