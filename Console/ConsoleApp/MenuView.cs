@@ -1,8 +1,8 @@
 using System;
-using EpocaEspecialLp2.Common;
+using Lp2EpocaEspecial.Common;
 using System.Collections.Concurrent;
 
-namespace EpocaEspecialLp2.ConsoleApp
+namespace Lp2EpocaEspecial.ConsoleApp
 {
     public class MenuView : IMenuView
     {

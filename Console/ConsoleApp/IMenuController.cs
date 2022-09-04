@@ -1,4 +1,4 @@
-namespace EpocaEspecialLp2.ConsoleApp
+namespace Lp2EpocaEspecial.ConsoleApp
 {
     public interface IMenuController
     {

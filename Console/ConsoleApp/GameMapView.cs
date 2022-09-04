@@ -1,4 +1,4 @@
-using EpocaEspecialLp2.Common;
+using Lp2EpocaEspecial.Common;
 
 namespace Lp2EpocaEspecial.ConsoleApp
 {      

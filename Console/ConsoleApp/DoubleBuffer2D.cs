@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace EpocaEspecialLp2.ConsoleApp
+namespace Lp2EpocaEspecial.ConsoleApp
 {
     // A simple generic double buffer implementation
     public class DoubleBuffer2D<T> : IBuffer2D<T>

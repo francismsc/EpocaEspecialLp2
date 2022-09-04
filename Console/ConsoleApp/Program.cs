@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Threading;
 using System.Collections.Concurrent;
-using EpocaEspecialLp2.Common;
+using Lp2EpocaEspecial.Common;
 
-namespace EpocaEspecialLp2.ConsoleApp
+namespace Lp2EpocaEspecial.ConsoleApp
 {
     class Program
     {
