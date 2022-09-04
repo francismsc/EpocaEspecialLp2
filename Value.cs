@@ -1,6 +1,6 @@
 using System;
 
-namespace EpocaEspecialLp2.Common
+namespace Lp2EpocaEspecial.Common
 {
 
     public enum Value

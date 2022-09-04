@@ -1,4 +1,4 @@
-﻿namespace EpocaEspecialLp2;
+﻿namespace Lp2EpocaEspecial;
 public class Class1
 {
 
