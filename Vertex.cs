@@ -1,6 +1,6 @@
 using System;
 
-namespace Lp2EpocaEspecial.Common
+namespace EpocaEspecialLp2.Common
 {
     public class Vertex
     {
