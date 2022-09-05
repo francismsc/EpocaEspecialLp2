@@ -9,6 +9,7 @@ namespace Lp2EpocaEspecial.ConsoleApp
         private readonly IMenuController menuController;
         private BlockingCollection<ConsoleKey> input;
         private Thread inputThread;
+
         public MenuView(IMenuController menuController, MenuModel menuModel)
         {
             this.menuController = menuController;
@@ -16,6 +17,7 @@ namespace Lp2EpocaEspecial.ConsoleApp
             menuModel.ShowAuthor += RenderAuthor;
             menuModel.StartGame += StartGame;
             menuModel.ShowMenu += RenderMenu;
+
             input = new BlockingCollection<ConsoleKey>();
             inputThread = new Thread(ReadKeys);
             inputThread.Start();
@@ -25,14 +27,13 @@ namespace Lp2EpocaEspecial.ConsoleApp
         {
             RenderMenu();
         }
-        public void GetInput()
+        public void GetMenuInput()
         {
 
             ConsoleKey key;
             if (input.TryTake(out key))
             {
                 Console.Clear();
-                Console.SetCursorPosition(0, 0);
                 switch (key)
                 {
                     case ConsoleKey.D1:
@@ -53,6 +54,26 @@ namespace Lp2EpocaEspecial.ConsoleApp
                         break;
                     default:
                         Console.WriteLine("\tUnknown option!");
+
+                        break;
+                }
+            }
+        }
+
+        public void GetAnyInput()
+        {
+            ConsoleKey key;
+            if (input.TryTake(out key))
+            {
+                Console.Clear();
+                switch (key)
+                {
+                    case ConsoleKey.Escape:
+                        Finish();
+                        menuController.Quit();
+                        break;
+                    default:
+                        menuController.ShowMenuAction();
                         break;
                 }
             }
@@ -72,7 +93,7 @@ namespace Lp2EpocaEspecial.ConsoleApp
         {
             Console.WriteLine("\n--The Rules--");
             Console.WriteLine("Be a good Person");
-            Console.WriteLine("Press 4 to");
+            Console.WriteLine("Press any key to go back to the Menu");
         }
 
         private void RenderAuthor()
@@ -80,6 +101,7 @@ namespace Lp2EpocaEspecial.ConsoleApp
 
             Console.WriteLine("\nAutores:");
             Console.WriteLine("Francisco Costa a21903228");
+            Console.WriteLine("Press any key to go back to the Menu");
         }
         private void StartGame()
         {
