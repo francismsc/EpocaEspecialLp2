@@ -4,16 +4,12 @@ namespace Lp2EpocaEspecial.Common
 {
     public class Vertex
     {
-        public char Number{ get; set;}
-
-        public List<Vertex> Edges{get;set;}
-
+        public char number{ get; set;}
         public Value value;
 
-        public Vertex(char Number, Value value)
+        public Vertex(char number, Value value)
         {
-            this.Number = Number;
-            Edges = new List<Vertex>();
+            this.number = number;
             this.value = value;
            
         }

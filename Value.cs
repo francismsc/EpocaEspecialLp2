@@ -8,7 +8,7 @@ namespace Lp2EpocaEspecial.Common
         Black = 'B',
         White = 'W',
         None = 'O',
-        OutofGame = 'X',
+        OutofGame = ' ',
         Connection = '-'
 
         
