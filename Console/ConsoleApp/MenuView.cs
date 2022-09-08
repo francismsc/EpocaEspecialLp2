@@ -84,9 +84,10 @@ namespace Lp2EpocaEspecial.ConsoleApp
             Console.WriteLine("\n=== Bye! ===");
         }
 
-        private void Render()
+        public void RenderAnimation(DoubleBuffer2D<char> bufferAnimation)
         {
-
+            Console.SetCursorPosition(50, 0);
+            Console.Write(bufferAnimation[0, 0]);
         }
 
         private void RenderRules()
@@ -104,8 +105,7 @@ namespace Lp2EpocaEspecial.ConsoleApp
             Console.WriteLine("Press any key to go back to the Menu");
         }
         private void StartGame()
-        {
-            Console.WriteLine("NOPE");
+        {;
             Console.WriteLine("\nLet the games Begin");
         }
 
@@ -131,10 +131,6 @@ namespace Lp2EpocaEspecial.ConsoleApp
             } while (ck != ConsoleKey.Escape);
         }
 
-        private void MenuAnimation()
-        {
-            Console.WriteLine();
-        }
     }
 
 }
