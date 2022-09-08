@@ -8,5 +8,6 @@ namespace Lp2EpocaEspecial.ConsoleApp
         void Finish();
         void GetAnyInput();
         void RenderMenu();
+        void RenderAnimation(DoubleBuffer2D<char> bufferAnimation);
     }
 }

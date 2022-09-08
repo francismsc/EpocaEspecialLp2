@@ -6,7 +6,7 @@ using Lp2EpocaEspecial.Common;
 
 namespace Lp2EpocaEspecial.ConsoleApp
 {
-	public class GameController : IGameController
+	public class GameController
 	{
         private readonly GameModel gameModel;
         private bool running = false;

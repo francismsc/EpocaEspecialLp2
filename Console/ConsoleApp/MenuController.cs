@@ -10,12 +10,21 @@ namespace Lp2EpocaEspecial.ConsoleApp
         private ICollection<IGameObject> gameObjects;
         private int menustate;
         private DoubleBuffer2D<char> buffer2D;
+        private readonly GameController gameController;
+        private readonly GameView gameView;
+        private int msPerFrame = 100;
 
         public MenuController(MenuModel menuModel)
         {
             this.menuModel = menuModel;
             gameObjects = new List<IGameObject>();
-        
+
+            GameModel gameModel = new GameModel();
+            this.gameController = new GameController(gameModel);
+            this.gameView = new GameView(gameController, gameModel);
+
+     
+
         }
     
 
@@ -27,25 +36,21 @@ namespace Lp2EpocaEspecial.ConsoleApp
             Console.Clear();
             running = true;
             view.Start();
-            int previous = DateTime.Now.Millisecond;
-            int lag = 0;
+
             while(running)
             {
-                int current = DateTime.Now.Millisecond;
-                int elapsed = current - previous;
-                lag += current;
+                int start = DateTime.Now.Millisecond;
 
                 Console.SetCursorPosition(0, 0);
-                int start = DateTime.Now.Millisecond;
-                while(lag >= 60)
-                {
-                    lag -= 60;
-                }
+
                 switch(menustate)
                 {
                     case 1:
+                       
                         break;
                     case 2:
+                        view.GetAnyInput();
+                        break;
                     case 3:
                         view.GetAnyInput();
                         break;
@@ -55,11 +60,22 @@ namespace Lp2EpocaEspecial.ConsoleApp
 
                 }
 
+
                 foreach (IGameObject gObj in gameObjects) gObj.Update();
-                Render();
+                Render(view);
+
+                Thread.Sleep(
+                    start + msPerFrame - DateTime.Now.Millisecond);
 
             }
 
+            foreach (GameObject gObj in gameObjects) gObj.Finish();
+        }
+
+        private void Render(IMenuView view)
+        {
+            buffer2D.Swap();
+            view.RenderAnimation(buffer2D);
         }
 
         public void SetupScene()
@@ -72,12 +88,6 @@ namespace Lp2EpocaEspecial.ConsoleApp
   
         }
 
-        public void Render()
-        {
-            buffer2D.Swap();
-            Console.SetCursorPosition(50, 0);
-            Console.Write(buffer2D[0, 0]);
-        }
         public void ShowRulesAction()
         {
             menustate = 2;
@@ -94,7 +104,10 @@ namespace Lp2EpocaEspecial.ConsoleApp
         public void StartGameAction()
         {
             menustate = 1;
+
             menuModel.OnStartGame();
+            gameController.RunGame(gameView);
+
         }
 
         public void ShowMenuAction()
