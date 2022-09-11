@@ -54,6 +54,7 @@ namespace Lp2EpocaEspecial.ConsoleApp
                         break;
                     default:
                         Console.WriteLine("\tUnknown option!");
+                        Console.WriteLine("\tPress 4 to go back!");
 
                         break;
                 }
@@ -93,8 +94,18 @@ namespace Lp2EpocaEspecial.ConsoleApp
         private void RenderRules()
         {
             Console.WriteLine("\n--The Rules--");
-            Console.WriteLine("Be a good Person");
-            Console.WriteLine("Press any key to go back to the Menu");
+            Console.WriteLine("Player 1 plays as whites (W) and Player 2 as black (B)");
+            Console.WriteLine("Each player in his turn moves a piece from its point," +
+                " along the marked line, to an adjacent empty point");
+            Console.WriteLine("The game is over when one of the players" +
+                " is trapped and cannot move. His opponent is declared the winner.");
+
+            Console.WriteLine("\n--Controls--");
+            Console.WriteLine("To move a piece in your turn press the number key" +
+                "that corresponds to the number of the piece you wanna move on the board");
+            Console.WriteLine("Press Escape to go back to the menu at any point in the game");
+
+            Console.WriteLine("\nPress any key to go back to the Menu");
         }
 
         private void RenderAuthor()
@@ -102,10 +113,10 @@ namespace Lp2EpocaEspecial.ConsoleApp
 
             Console.WriteLine("\nAutores:");
             Console.WriteLine("Francisco Costa a21903228");
-            Console.WriteLine("Press any key to go back to the Menu");
+            Console.WriteLine("\nPress any key to go back to the Menu");
         }
         private void StartGame()
-        {;
+        {
             Console.WriteLine("\nLet the games Begin");
         }
 

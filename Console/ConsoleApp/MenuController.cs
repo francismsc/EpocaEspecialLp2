@@ -12,16 +12,16 @@ namespace Lp2EpocaEspecial.ConsoleApp
         private DoubleBuffer2D<char> buffer2D;
         private readonly GameController gameController;
         private readonly GameView gameView;
-        private int msPerFrame = 100;
+        private int msPerFrame = 60;
 
         public MenuController(MenuModel menuModel)
         {
             this.menuModel = menuModel;
             gameObjects = new List<IGameObject>();
-
+            buffer2D = new DoubleBuffer2D<char>(1, 1);
             GameModel gameModel = new GameModel();
             this.gameController = new GameController(gameModel);
-            this.gameView = new GameView(gameController, gameModel);
+            this.gameView = new GameView(gameModel);
 
      
 
@@ -30,7 +30,6 @@ namespace Lp2EpocaEspecial.ConsoleApp
 
         public void RunMenu(IMenuView view)
         {
-            buffer2D = new DoubleBuffer2D<char>(1, 1);
             SetupScene();
             menustate = 4;
             Console.Clear();
@@ -45,9 +44,6 @@ namespace Lp2EpocaEspecial.ConsoleApp
 
                 switch(menustate)
                 {
-                    case 1:
-                       
-                        break;
                     case 2:
                         view.GetAnyInput();
                         break;
@@ -63,9 +59,11 @@ namespace Lp2EpocaEspecial.ConsoleApp
 
                 foreach (IGameObject gObj in gameObjects) gObj.Update();
                 Render(view);
-
-                Thread.Sleep(
-                    start + msPerFrame - DateTime.Now.Millisecond);
+                if (start + msPerFrame - DateTime.Now.Millisecond >= 0)
+                {
+                    Thread.Sleep(
+                        start + msPerFrame - DateTime.Now.Millisecond);
+                }
 
             }
 

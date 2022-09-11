@@ -10,10 +10,6 @@ namespace Lp2EpocaEspecial.ConsoleApp
        static void Main(string[] args)
         {
             Program p = new Program();
-
-            p.GameLoop();
-
-
         }
 
         private Program()
@@ -28,14 +24,6 @@ namespace Lp2EpocaEspecial.ConsoleApp
         }
 
 
-
-        public void GameLoop()
-        {
-
-
-
-
-        }
 
         
     }
