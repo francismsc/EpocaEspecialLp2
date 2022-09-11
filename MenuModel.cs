@@ -56,13 +56,13 @@ namespace Lp2EpocaEspecial.Common
         }
 
 
-        public event Action ShowRules;
+        public event Action? ShowRules;
 
-        public event Action StartGame;
+        public event Action? StartGame;
 
-        public event Action ShowAuthor;
+        public event Action? ShowAuthor;
 
-        public event Action ShowMenu;
+        public event Action? ShowMenu;
 
 
     }
