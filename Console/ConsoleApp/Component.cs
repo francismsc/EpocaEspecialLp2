@@ -5,7 +5,7 @@ namespace Lp2EpocaEspecial.ConsoleApp
     public abstract class Component : IGameObject
 {
     // The game object holding the component
-    public GameObject ParentGameObject { get; set; }
+    public GameObject? ParentGameObject { get; set; }
 
     // Empty implementations of Start(), Update() and Finish(), so that
     // concrete components are not forced to implement all these methods

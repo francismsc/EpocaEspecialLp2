@@ -8,7 +8,7 @@ namespace Lp2EpocaEspecial.ConsoleApp
     // Class for all game objects, which is basically a container for components
     public class GameObject : IGameObject
     {
-        public GameObject ParentGameObject { get; set; }
+        public GameObject? ParentGameObject { get; set; }
 
         // The name of this game object
         public string Name { get; }
@@ -20,6 +20,7 @@ namespace Lp2EpocaEspecial.ConsoleApp
         // Create a new game object
         public GameObject(string name)
         {
+            ParentGameObject = null;
             Name = name;
             components = new List<Component>();
             gameObjects = new List<IGameObject>();
@@ -43,22 +44,22 @@ namespace Lp2EpocaEspecial.ConsoleApp
         }
 
         // Get the first component of the specified type
-        public T GetComponent<T>() where T : Component
+        public T? GetComponent<T>() where T : Component
         {
             return components.FirstOrDefault(component => component is T) as T;
         }
 
-        public T GetGameObject<T>() where T : GameObject
+        public T? GetGameObject<T>() where T : GameObject
         {
             return gameObjects.FirstOrDefault(child => child is T) as T;
         }
 
         // Get all components of specified type
-        public IEnumerable<T> GetComponents<T>() where T : Component
+        public IEnumerable<T?> GetComponents<T>() where T : Component
         {
-            return components
-                .Where(component => component is T)
-                .Select((component => component as T));
+                return components
+                    .Where(component => component is T)
+                    .Select((component => component as T));           
         }
 
         // Start all components in this game object
