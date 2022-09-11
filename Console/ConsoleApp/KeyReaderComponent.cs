@@ -18,7 +18,7 @@ namespace Lp2EpocaEspecial.ConsoleApp
         // component in the main thread
         private BlockingCollection<ConsoleKey>? input;
         // The input thread
-        private Thread inputThread;
+        private Thread? inputThread;
 
         // Start is called immediately before the game loop starts
         public override void Start()
@@ -70,10 +70,7 @@ namespace Lp2EpocaEspecial.ConsoleApp
                  
                         break;
                     case ConsoleKey.D6:
-                        pieceToMove = '6';
-                        
-                        break;
-
+                        pieceToMove = '6';                   
                         break;
                     case ConsoleKey.Escape:
                         // If the escape key was read, notify
@@ -102,7 +99,7 @@ namespace Lp2EpocaEspecial.ConsoleApp
             // Make sure cursor is again visible
             Console.CursorVisible = true;
             // Wait for the input thread
-            inputThread.Join();
+            inputThread?.Join();
         }
 
         // This method will run inside the input thread, waiting for keys to
@@ -114,7 +111,7 @@ namespace Lp2EpocaEspecial.ConsoleApp
             {
                 // When a key is pressed, add it to the collection
                 ck = Console.ReadKey(true).Key;
-                input.Add(ck);
+                input?.Add(ck);
             } while (ck != ConsoleKey.Escape);
         }
 
@@ -126,6 +123,6 @@ namespace Lp2EpocaEspecial.ConsoleApp
         }
 
         // Event to be invoked when the Escape key is detected
-        public event Action EscapePressed;
+        public event Action? EscapePressed;
     }
 }

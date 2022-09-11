@@ -4,7 +4,7 @@ namespace Lp2EpocaEspecial.ConsoleApp
 	public class AnimationComponent : Component
 	{
 		private IBuffer2D<char> buffer;
-		int counter = 0;
+
 		int frames = 0;
 		public AnimationComponent(IBuffer2D<char> buffer)
 		{
@@ -14,10 +14,10 @@ namespace Lp2EpocaEspecial.ConsoleApp
 		public override void Update()
 		{
 
-			counter++;
+			frames++;
 
 
-            switch (counter)
+            switch (frames)
 			{
 					case 0:
 						buffer[0, 0] = '/';
@@ -42,7 +42,7 @@ namespace Lp2EpocaEspecial.ConsoleApp
 						break;
 					case 7:
 						buffer[0, 0] = '-';
-						counter = 0;
+						frames = 0;
 						break;
 					default:
 						buffer[0, 0] = 't';

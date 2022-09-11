@@ -9,39 +9,38 @@ namespace Lp2EpocaEspecial.ConsoleApp
 
 	public class MoveComponent : Component
 	{
-        private int x, y;
-        // Buffer where player will draw itself
-        private IBuffer2D<Vertex> buffer;
-        // A reference to the key reader component
-        private KeyReaderComponent keyReader;
-
-        public Map map;
-
-        public Point point1;
-        public Point point2;
-
+        private KeyReaderComponent? keyReader;
+        public Map? map;
         public GameModel gameModel;
-
         private Value valueToMove;
+        private BackgroundComponent? background;
+        public GameObject? playerComponent, backgroundComponent;
 
-        
 
 
-
-        private BackgroundComponent background;
         public MoveComponent(GameModel gameModel)
-		{
-            this.gameModel = gameModel;
-        }
+        {
 
+            this.gameModel = gameModel;
+
+        }
 		public override void Start()
 		{
-			keyReader = ParentGameObject.GetComponent<KeyReaderComponent>();
-            background = ParentGameObject.ParentGameObject.GetComponent<BackgroundComponent>();
-            map = background.gameMap;
+            playerComponent = ParentGameObject;
+            if(playerComponent != null)
+            {
+                backgroundComponent = playerComponent.ParentGameObject;
+                if(backgroundComponent != null)
+                {
+                    this.keyReader = playerComponent.GetComponent<KeyReaderComponent>();
+                    this.background = backgroundComponent.GetComponent<BackgroundComponent>();
+                    if(background != null)
+                    {
+                        this.map = background.gameMap;
+                    }
+                }
+            }
 
-            
-            
         }
 
         public override void Update()
@@ -54,11 +53,11 @@ namespace Lp2EpocaEspecial.ConsoleApp
                 valueToMove = Value.Black;
             }
 
-            if (keyReader.pieceToMove != null)
+            if (keyReader?.pieceToMove != null)
             {
                 char? pieceToMove = keyReader.pieceToMove;
 
-
+                if(map!=null)
                 foreach (Point points in map.points)
                 {
                     if (points.vertex.number == pieceToMove && points.vertex.value == valueToMove)
@@ -70,7 +69,7 @@ namespace Lp2EpocaEspecial.ConsoleApp
                             if (point.vertex.value == Value.None)
                             {
 
-
+                                if(background!=null)
                                 Swap(points, point, background.gameMap);
                                 gameModel.ChangePlayer();
 
