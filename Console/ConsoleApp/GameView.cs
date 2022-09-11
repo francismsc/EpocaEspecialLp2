@@ -7,15 +7,20 @@ namespace Lp2EpocaEspecial.ConsoleApp
 
     public class GameView : IGameView
     {
-        private readonly IGameController gameController;
-        private readonly GameModel gameModel;
-        public GameView(IGameController gameController, GameModel gameModel)
+
+
+        public GameView(GameModel gameModel)
         {
-            this.gameController = gameController;
+
             gameModel.ShowPlayer1Turn += ShowPlayer1Turn;
             gameModel.ShowPlayer2Turn += ShowPlayer2Turn;
             gameModel.ShowVictoryP1 += RenderVictoryP1;
             gameModel.ShowVictoryP2 += RenderVictoryP2;
+        }
+
+        public void Start()
+        {
+            ShowPlayer1Turn();
         }
 
         public void RenderMap(
@@ -79,16 +84,14 @@ namespace Lp2EpocaEspecial.ConsoleApp
         {
             Console.SetCursorPosition(0, 6);
             Console.WriteLine("Time To Play");
-            Console.WriteLine("  Player 1");
-
-
+            Console.WriteLine("Whites Pieces");
         }
 
         public void ShowPlayer2Turn()
         {
             Console.SetCursorPosition(0, 6);
             Console.WriteLine("Time To Play");
-            Console.WriteLine("  Player 2");
+            Console.WriteLine("Black Pieces");
 
 
 
@@ -98,14 +101,14 @@ namespace Lp2EpocaEspecial.ConsoleApp
         {
             Console.SetCursorPosition(0, 6);
             Console.WriteLine("The Game has Ended");
-            Console.WriteLine("  Player 1 WON!!!");
+            Console.WriteLine(" White Pieces Won");
         }
 
         public void RenderVictoryP2()
         {
             Console.SetCursorPosition(0, 6);
             Console.WriteLine("The Game has Ended");
-            Console.WriteLine("  Player 2 WON!!!");
+            Console.WriteLine(" Black Pieces Won");
         }
     }
 

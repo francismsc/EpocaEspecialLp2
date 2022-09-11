@@ -10,6 +10,8 @@ namespace Lp2EpocaEspecial.ConsoleApp
 
         void RenderAnimation(DoubleBuffer2D<char> bufferAnimation);
 
+        void Start();
+
 
     }
 }
