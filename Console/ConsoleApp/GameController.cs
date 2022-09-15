@@ -30,7 +30,7 @@ namespace Lp2EpocaEspecial.ConsoleApp
             gameObjectsP1 = new List<IGameObject>();
             gameObjectsP2 = new List<IGameObject>();
             buffer2D = new DoubleBuffer2D<Point>(3, 3);
-            animationbuffer = new DoubleBuffer2D<char>(1, 1);
+            animationbuffer = new DoubleBuffer2D<char>(30, 1);
             gameMap = SetupMap();
             SetupScene();
 
@@ -127,9 +127,9 @@ namespace Lp2EpocaEspecial.ConsoleApp
             
             buffer2D.Swap();
             animationbuffer.Swap();
-            
 
 
+            gameView.ShowEscapeMessage();
             gameView.RenderMap(buffer2D);
             gameView.RenderAnimation(animationbuffer);
 
@@ -143,6 +143,7 @@ namespace Lp2EpocaEspecial.ConsoleApp
 
         public void CheckPlayerTurn(GameModel gameModel)
         {
+
             switch (gameModel.playerTurn)
             {
                 case 1:
@@ -155,6 +156,8 @@ namespace Lp2EpocaEspecial.ConsoleApp
                     break;
 
             }
+
+
         }
 
 
