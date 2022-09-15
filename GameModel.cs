@@ -1,11 +1,19 @@
 ﻿using System;
 namespace Lp2EpocaEspecial.Common
 {
+    /// <summary>
+    /// Contains some of the game's data and methods that
+    ///  need use some of the data
+    /// Also contains some C#events 
+    /// </summary>
     public class GameModel
     {
         public int playerTurn = 1;
         public Value colorPiecePlaying = Value.White;
         public bool gameEnded;
+        /// <summary>
+        /// Change's who's player turn is
+        /// </summary>
         public void ChangePlayer()
         {
             if (playerTurn == 1)
@@ -21,6 +29,9 @@ namespace Lp2EpocaEspecial.Common
                 OnPlayer1Turn();
             }
         }
+        /// <summary>
+        /// Calls event to the view to show who is playing
+        /// </summary>
         public void OnPlayer1Turn()
         {
             ShowPlayer1Turn?.Invoke();
@@ -29,6 +40,11 @@ namespace Lp2EpocaEspecial.Common
         {
             ShowPlayer2Turn?.Invoke();
         }
+        /// <summary>
+        /// Checks if someone won this turn
+        /// </summary>
+        /// <param name="gamemap">Map of the board</param>
+        /// <returns>true if someone won false if no one won</returns>
         public bool CheckWinCondition(Map gamemap)
         {
             foreach (Point points in gamemap.points)
@@ -46,6 +62,9 @@ namespace Lp2EpocaEspecial.Common
             }
             return true;
         }
+        /// <summary>
+        /// Ends the game and evokes the event to display the victory screen
+        /// </summary>
         public void OnGameEnd()
         {
             if (playerTurn == 2)
