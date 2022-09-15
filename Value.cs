@@ -1,7 +1,7 @@
 namespace Lp2EpocaEspecial.Common
 {
     /// <summary>
-    /// The possible values of a vertex on the board
+    /// The possible values of a vertex on the boardgit 
     /// </summary>
     public enum Value
     {
