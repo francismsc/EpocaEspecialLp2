@@ -18,9 +18,10 @@ public class GameController : MonoBehaviour
     {
 
 
-        if (gameModelObjectContainer.gameModelContainer.GameModel.CheckWinCondition(Background.GetComponent<Background>().gameMap))
+        if (gameModelObjectContainer.gameModelContainer.GameModel.
+            CheckWinCondition(Background.GetComponent<Background>().gameMap))
         {
-            Debug.Log("Yes");
+
             GameEnded(gameModelObjectContainer.gameModelContainer.GameModel);
         }
         CheckPlayerTurn(gameModelObjectContainer.gameModelContainer.GameModel);
@@ -31,6 +32,7 @@ public class GameController : MonoBehaviour
 
     public void GameEnded(GameModel gameModel)
     {
+        Debug.Log(gameModel.playerTurn);
         gameModel.OnGameEnd();
     }
 
@@ -40,14 +42,18 @@ public class GameController : MonoBehaviour
         switch (gameModel.playerTurn)
         {
             case 1:
+
                 Player1Turn();
 
 
                 break;
             case 2:
+
                 Player2Turn();
                 break;
+            default:
 
+                break;
         }
 
 

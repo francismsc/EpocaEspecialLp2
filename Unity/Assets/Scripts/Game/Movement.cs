@@ -38,7 +38,8 @@ public class Movement : MonoBehaviour
             if (gameMap != null)
                 foreach (Point points in gameMap.points)
                 {
-                    if (points.vertex.number == pieceToMove && points.vertex.value == valueToMove)
+                    if (points.vertex.number == pieceToMove &&
+                        points.vertex.value == valueToMove)
                     {
 
                         foreach (Point point in points.connections)

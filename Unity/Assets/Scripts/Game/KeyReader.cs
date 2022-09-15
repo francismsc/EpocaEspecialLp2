@@ -41,7 +41,8 @@ public class KeyReader : MonoBehaviour
         else if (Input.GetMouseButtonDown(0))
         {
           
-            RaycastHit2D rayhit = Physics2D.GetRayIntersection(Camera.main.ScreenPointToRay(Input.mousePosition));
+            RaycastHit2D rayhit = Physics2D.GetRayIntersection
+                (Camera.main.ScreenPointToRay(Input.mousePosition));
             if(rayhit.collider != null)
             {
                 PointObjectReader(rayhit.transform.gameObject);

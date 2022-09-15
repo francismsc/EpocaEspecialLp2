@@ -29,6 +29,7 @@ public class GameView : MonoBehaviour
 
     public void Start()
     {
+        Screen.SetResolution(1920, 1080, true);
         gameModel.ShowPlayer1Turn += ShowPlayer1Turn;
         gameModel.ShowPlayer2Turn += ShowPlayer2Turn;
         gameModel.ShowVictoryP1 += RenderVictoryP1;
@@ -58,7 +59,8 @@ public class GameView : MonoBehaviour
         {
 
             ChangeColor(points[counter], gameMap.points[x].vertex.value);
-            ChangeText(points[counter].transform.GetChild(0).GetChild(0).GetComponent<TextMeshProUGUI>(),
+            ChangeText(points[counter].transform.GetChild(0).GetChild(0).
+                GetComponent<TextMeshProUGUI>(),
                 gameMap.points[x].vertex.number,
                 gameMap.points[x].vertex.value);
             counter++;
