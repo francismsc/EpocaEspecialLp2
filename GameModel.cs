@@ -1,10 +1,11 @@
 ﻿using System;
+using System.Diagnostics;
 
 namespace Lp2EpocaEspecial.Common
 {
     public class GameModel
     {
-        public int playerTurn;
+        public int playerTurn = 1;
         public Value colorPiecePlaying = Value.White;
         public bool gameEnded;
 
@@ -63,19 +64,21 @@ namespace Lp2EpocaEspecial.Common
 
         public void OnGameEnd()
         {
-            if (playerTurn == 1)
+            if (playerTurn == 2)
             {
+ 
                 playerTurn = 3;
                 ShowVictoryP2?.Invoke();
             }
-            else
+            else if(playerTurn == 1)
             {
+
                 playerTurn = 3;
                 ShowVictoryP1?.Invoke();
             }
         }
 
-
+#nullable enable
         public event Action? ShowPlayer1Turn;
         public event Action? ShowPlayer2Turn;
         public event Action? ShowVictoryP1;
