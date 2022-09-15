@@ -1,4 +1,7 @@
-﻿using System.Collections.Concurrent;
+﻿using System;
+using System.Collections.Concurrent;
+using System.Threading;
+
 namespace Lp2EpocaEspecial.ConsoleApp
 {
     // A key reader components

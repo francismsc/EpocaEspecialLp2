@@ -1,4 +1,6 @@
 ﻿using Lp2EpocaEspecial.Common;
+using System;
+
 namespace Lp2EpocaEspecial.ConsoleApp
 {
     /// <summary>

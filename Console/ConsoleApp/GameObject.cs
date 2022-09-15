@@ -1,3 +1,6 @@
+using System.Collections.Generic;
+using System.Linq;
+
 namespace Lp2EpocaEspecial.ConsoleApp
 {
     // Class for all game objects, which is basically a container for components

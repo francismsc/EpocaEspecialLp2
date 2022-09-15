@@ -1,5 +1,8 @@
 using Lp2EpocaEspecial.Common;
+using System;
 using System.Collections.Concurrent;
+using System.Threading;
+
 namespace Lp2EpocaEspecial.ConsoleApp
 {
     /// <summary>
