@@ -1,5 +1,9 @@
 namespace Lp2EpocaEspecial.ConsoleApp
 {
+    /// <summary>
+    /// Interface of the doubleBuffer
+    /// </summary>
+    /// <typeparam name="T">generic type</typeparam>
     public interface IBuffer2D<T>
     {
         int XDim { get; }

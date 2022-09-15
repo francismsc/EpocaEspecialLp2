@@ -1,5 +1,8 @@
 namespace Lp2EpocaEspecial.ConsoleApp
 {
+    /// <summary>
+    /// Interface for the Menu View
+    /// </summary>
     public interface IMenuView
     {
         void Start();

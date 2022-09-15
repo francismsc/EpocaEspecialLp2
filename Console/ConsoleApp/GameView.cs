@@ -1,6 +1,9 @@
 ﻿using Lp2EpocaEspecial.Common;
 namespace Lp2EpocaEspecial.ConsoleApp
 {
+    /// <summary>
+    /// Used to display the UI and board of the game
+    /// </summary>
     public class GameView : IGameView
     {
         public GameView(GameModel gameModel)
@@ -14,6 +17,10 @@ namespace Lp2EpocaEspecial.ConsoleApp
         {
             ShowPlayer1Turn();
         }
+        /// <summary>
+        /// Displays the map of the game using the doubleBuffer
+        /// </summary>
+        /// <param name="db">contains data of the map</param>
         public void RenderMap(
         DoubleBuffer2D<Point> db)
         {
@@ -61,6 +68,10 @@ namespace Lp2EpocaEspecial.ConsoleApp
                 }
             }
         }
+        /// <summary>
+        /// Renders the animation of the game
+        /// </summary>
+        /// <param name="bufferAnimation"></param>
         public void RenderAnimation(DoubleBuffer2D<char> bufferAnimation)
         {
             Console.SetCursorPosition(0, 0);
@@ -72,29 +83,44 @@ namespace Lp2EpocaEspecial.ConsoleApp
                 }
             }
         }
+        /// <summary>
+        /// Displays who is playing
+        /// </summary>
         public void ShowPlayer1Turn()
         {
             Console.SetCursorPosition(0, 6);
             Console.WriteLine("\t--It's your turn!--");
             Console.WriteLine("\t--Whites Pieces!--");
         }
+        /// <summary>
+        /// Displays who is playing
+        /// </summary>
         public void ShowPlayer2Turn()
         {
             Console.SetCursorPosition(0, 6);
             Console.WriteLine("\t--It's your turn!--");
             Console.WriteLine("\t--Black Pieces!--");
         }
+        /// <summary>
+        /// Displays controls message
+        /// </summary>
         public void ShowEscapeMessage()
         {
             Console.SetCursorPosition(0, 17);
             Console.WriteLine("Press Escape at any moment to go back to the menu");
         }
+        /// <summary>
+        /// Displays victory message for whites pieces
+        /// </summary>
         public void RenderVictoryP1()
         {
             Console.SetCursorPosition(0, 6);
             Console.WriteLine("\tThe Game has Ended");
             Console.WriteLine("\t White Pieces Won");
         }
+        /// <summary>
+        /// Displays victory message for black pieces
+        /// </summary>
         public void RenderVictoryP2()
         {
             Console.SetCursorPosition(0, 6);

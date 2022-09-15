@@ -1,6 +1,9 @@
 ﻿using Lp2EpocaEspecial.Common;
 namespace Lp2EpocaEspecial.ConsoleApp
 {
+    /// <summary>
+    /// Starts the game instance
+    /// </summary>
     class Program
     {
         static void Main(string[] args)

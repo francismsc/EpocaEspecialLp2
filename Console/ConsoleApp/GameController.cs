@@ -1,6 +1,10 @@
 ﻿using Lp2EpocaEspecial.Common;
 namespace Lp2EpocaEspecial.ConsoleApp
 {
+    /// <summary>
+    /// The game loop of the game and the one who setups the game, passes
+    /// the information to the gameModel/gameObjects and to the view for display
+    /// </summary>
     public class GameController
     {
         private readonly GameModel gameModel;
@@ -22,6 +26,10 @@ namespace Lp2EpocaEspecial.ConsoleApp
             gameMap = SetupMap();
             SetupScene();
         }
+        /// <summary>
+        /// GameLoop of the game
+        /// </summary>
+        /// <param name="gameView"></param>
         public void RunGame(IGameView gameView)
         {
             Console.Clear();
@@ -49,6 +57,9 @@ namespace Lp2EpocaEspecial.ConsoleApp
             foreach (GameObject gObj in gameObjectsP1) gObj.Finish();
             foreach (GameObject gObj in gameObjectsP2) gObj.Finish();
         }
+        /// <summary>
+        /// Setups the scene by creating the GameObjects and adding the components
+        /// </summary>
         public void SetupScene()
         {
             GameObject animation;
@@ -85,6 +96,11 @@ namespace Lp2EpocaEspecial.ConsoleApp
                 menuController.RunMenu(menuView);
             };
         }
+
+        /// <summary>
+        /// Swaps doublebuffer and calls the view to display all changes
+        /// </summary>
+        /// <param name="gameView">gameview of our game</param>
         public void Render(IGameView gameView)
         {
             buffer2D.Swap();
@@ -93,10 +109,18 @@ namespace Lp2EpocaEspecial.ConsoleApp
             gameView.RenderMap(buffer2D);
             gameView.RenderAnimation(animationbuffer);
         }
+        /// <summary>
+        /// calls gameModel if the game ends
+        /// </summary>
+        /// <param name="gameModel">GameModel of our game</param>
         public void GameEnded(GameModel gameModel)
         {
             gameModel.OnGameEnd();
         }
+        /// <summary>
+        /// Checks who is playing and calls the method to update the GameObjects
+        /// </summary>
+        /// <param name="gameModel"></param>
         public void CheckPlayerTurn(GameModel gameModel)
         {
             switch (gameModel.playerTurn)
@@ -109,22 +133,38 @@ namespace Lp2EpocaEspecial.ConsoleApp
                     break;
             }
         }
+        /// <summary>
+        /// Calls method to invoke an event
+        /// </summary>
         public void ShowPlayer1TurnAction()
         {
             gameModel.OnPlayer1Turn();
         }
+        /// <summary>
+        /// Calls method to invoke an event
+        /// </summary>
         public void ShowPlayer2TurnAction()
         {
             gameModel.OnPlayer2Turn();
         }
+        /// <summary>
+        /// Updates the GameObjects of Player1 (White pieces)
+        /// </summary>
         public void Player1Turn()
         {
             foreach (IGameObject gObj in gameObjectsP1) gObj.Update();
         }
+        /// <summary>
+        /// Updates the GameObjects of Player2 (Black pieces)
+        /// </summary>
         public void Player2Turn()
         {
             foreach (IGameObject gObj in gameObjectsP2) gObj.Update();
         }
+        /// <summary>
+        /// Setups the map of the game
+        /// </summary>
+        /// <returns>map of the game</returns>
         public Map SetupMap()
         {
             Vertex vertex1 = new Vertex('1', Value.Black);

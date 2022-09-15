@@ -2,6 +2,9 @@ using Lp2EpocaEspecial.Common;
 using System.Collections.Concurrent;
 namespace Lp2EpocaEspecial.ConsoleApp
 {
+    /// <summary>
+    /// Displays the UI of the menu
+    /// </summary>
     public class MenuView : IMenuView
     {
         private readonly IMenuController menuController;
@@ -22,6 +25,9 @@ namespace Lp2EpocaEspecial.ConsoleApp
         {
             RenderMenu();
         }
+        /// <summary>
+        /// Accepts the input on the menu and calls the controller to act upon it
+        /// </summary>
         public void GetMenuInput()
         {
             ConsoleKey key;
@@ -53,6 +59,9 @@ namespace Lp2EpocaEspecial.ConsoleApp
                 }
             }
         }
+        /// <summary>
+        /// Accepts any input in the subMenus to go back to the menu
+        /// </summary>
         public void GetAnyInput()
         {
             ConsoleKey key;
@@ -75,6 +84,10 @@ namespace Lp2EpocaEspecial.ConsoleApp
         {
             Console.WriteLine("\n=== Bye! ===");
         }
+        /// <summary>
+        /// Render the animation in the menu
+        /// </summary>
+        /// <param name="bufferAnimation"></param>
         public void RenderAnimation(DoubleBuffer2D<char> bufferAnimation)
         {
             {
@@ -88,6 +101,9 @@ namespace Lp2EpocaEspecial.ConsoleApp
                 }
             }
         }
+        /// <summary>
+        /// Displays the rules
+        /// </summary>
         private void RenderRules()
         {
             Console.WriteLine("\n--The Rules--");
@@ -102,16 +118,25 @@ namespace Lp2EpocaEspecial.ConsoleApp
             Console.WriteLine("Press Escape to go back to the menu at any point in the game");
             Console.WriteLine("\nPress any key to go back to the Menu");
         }
+        /// <summary>
+        /// Displays the Author
+        /// </summary>
         private void RenderAuthor()
         {
             Console.WriteLine("\nAuthor:");
             Console.WriteLine("Francisco Costa a21903228");
             Console.WriteLine("\nPress any key to go back to the Menu");
         }
+        /// <summary>
+        /// Displays the gameStart
+        /// </summary>
         private void StartGame()
         {
             Console.WriteLine("\nLet the games Begin");
         }
+        /// <summary>
+        /// Displays the menu
+        /// </summary>
         public void RenderMenu()
         {
             Console.WriteLine("\n=== Welcome to the Madelinette ===");

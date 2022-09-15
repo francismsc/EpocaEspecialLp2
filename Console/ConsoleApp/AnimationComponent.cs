@@ -1,9 +1,14 @@
 ﻿namespace Lp2EpocaEspecial.ConsoleApp
 {
+	/// <summary>
+	/// Handles the animations and puts them inside of the buffer
+	/// </summary>
     public class AnimationComponent : Component
     {
         private IBuffer2D<char> buffer;
         private int frames = 0;
+
+		/// <param name="buffer">Receives a double buffer</param>
         public AnimationComponent(IBuffer2D<char> buffer)
         {
             this.buffer = buffer;

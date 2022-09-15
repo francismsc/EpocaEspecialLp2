@@ -1,6 +1,9 @@
 using Lp2EpocaEspecial.Common;
 namespace Lp2EpocaEspecial.ConsoleApp
 {
+    /// <summary>
+    /// Controls game loop of the Menu
+    /// </summary>
     public class MenuController : IMenuController
     {
         private readonly MenuModel menuModel;
@@ -20,6 +23,10 @@ namespace Lp2EpocaEspecial.ConsoleApp
             this.gameController = new GameController(gameModel);
             this.gameView = new GameView(gameModel);
         }
+        /// <summary>
+        /// Game loop of the menu
+        /// </summary>
+        /// <param name="view"></param>
         public void RunMenu(IMenuView view)
         {
             SetupScene();
@@ -54,11 +61,18 @@ namespace Lp2EpocaEspecial.ConsoleApp
             }
             foreach (GameObject gObj in gameObjects) gObj.Finish();
         }
+        /// <summary>
+        /// Swaps buffers and calls the view to display changes
+        /// </summary>
+        /// <param name="view"></param>
         private void Render(IMenuView view)
         {
             buffer2D.Swap();
             view.RenderAnimation(buffer2D);
         }
+        /// <summary>
+        /// Setups Menu gameObjects
+        /// </summary>
         private void SetupScene()
         {
             GameObject animation;
@@ -66,27 +80,47 @@ namespace Lp2EpocaEspecial.ConsoleApp
             animation.AddComponent(new AnimationComponent(buffer2D));
             gameObjects.Add(animation);
         }
+        /// <summary>
+        /// Changes what menu we are in and calls model to invoke the view
+        /// to display the rules
+        /// </summary>
         public void ShowRulesAction()
         {
             menustate = 2;
             menuModel.OnShowRules();
         }
+        /// <summary>
+        /// Changes what menu we are in and calls model to invoke the view
+        /// to display the Author
+        /// </summary>
         public void ShowAuthorAction()
         {
             menustate = 3;
             menuModel.OnShowAuthor();
         }
+        /// <summary>
+        /// Changes what menu we are in and calls model to invoke the view
+        /// to display the game
+        /// Starts the gameLoop of the game
+        /// </summary>
         public void StartGameAction()
         {
             menustate = 1;
             menuModel.OnStartGame();
             gameController.RunGame(gameView);
         }
+        /// <summary>
+        /// Changes what menu we are in and calls model to invoke the view
+        /// to display the Menu
+        /// </summary>
         public void ShowMenuAction()
         {
             menustate = 4;
             menuModel.OnShowMenu();
         }
+        /// <summary>
+        /// Quits the game
+        /// </summary>
         public void Quit()
         {
             running = false;
