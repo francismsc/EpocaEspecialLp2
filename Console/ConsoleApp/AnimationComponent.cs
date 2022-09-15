@@ -15,40 +15,43 @@ namespace Lp2EpocaEspecial.ConsoleApp
 		{
 
 			frames++;
-
-
-            switch (frames)
+			for (int bufferY = 0; bufferY < buffer.YDim; bufferY++)
 			{
+				for(int bufferX = 0; bufferX < buffer.XDim; bufferX++)
+				switch (frames)
+				{
 					case 0:
-						buffer[0, 0] = '/';
+						buffer[bufferX, bufferY] = '/';
 						break;
 					case 1:
-						buffer[0, 0] = '|';
+						buffer[bufferX, bufferY] = '|';
 						break;
 					case 2:
-						buffer[0, 0] = '\\';
+						buffer[bufferX, bufferY] = '\\';
 						break;
 					case 3:
-						buffer[0, 0] = '-';
+						buffer[bufferX, bufferY] = '-';
 						break;
 					case 4:
-						buffer[0, 0] = '/';
+						buffer[bufferX, bufferY] = '/';
 						break;
 					case 5:
-						buffer[0, 0] = '|';
+						buffer[bufferX, bufferY] = '|';
 						break;
 					case 6:
-						buffer[0, 0] = '\\';
+						buffer[bufferX, bufferY] = '\\';
 						break;
 					case 7:
-						buffer[0, 0] = '-';
+						buffer[bufferX, bufferY] = '-';
 						frames = 0;
 						break;
 					default:
-						buffer[0, 0] = 't';
+						buffer[bufferX, bufferY] = 'X';
 						break;
 
+				}
 			}
+			
 
 
         }
