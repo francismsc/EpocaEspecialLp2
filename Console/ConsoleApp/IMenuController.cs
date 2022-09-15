@@ -6,9 +6,6 @@ namespace Lp2EpocaEspecial.ConsoleApp
         void ShowAuthorAction();
         void StartGameAction();
         void ShowMenuAction();
-       
         void Quit();
-
-
     }
 }

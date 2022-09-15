@@ -1,5 +1,5 @@
 namespace Lp2EpocaEspecial.ConsoleApp
-{ 
+{
     public interface IBuffer2D<T>
     {
         int XDim { get; }

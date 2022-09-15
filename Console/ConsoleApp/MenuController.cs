@@ -1,9 +1,7 @@
-using System;
 using Lp2EpocaEspecial.Common;
-
 namespace Lp2EpocaEspecial.ConsoleApp
 {
-    public class MenuController: IMenuController
+    public class MenuController : IMenuController
     {
         private readonly MenuModel menuModel;
         private bool running = false;
@@ -13,7 +11,6 @@ namespace Lp2EpocaEspecial.ConsoleApp
         private readonly GameController gameController;
         private readonly GameView gameView;
         private int msPerFrame = 60;
-
         public MenuController(MenuModel menuModel)
         {
             this.menuModel = menuModel;
@@ -22,12 +19,7 @@ namespace Lp2EpocaEspecial.ConsoleApp
             GameModel gameModel = new GameModel();
             this.gameController = new GameController(gameModel);
             this.gameView = new GameView(gameModel);
-
-     
-
         }
-    
-
         public void RunMenu(IMenuView view)
         {
             SetupScene();
@@ -36,14 +28,11 @@ namespace Lp2EpocaEspecial.ConsoleApp
             Console.CursorVisible = false;
             running = true;
             view.Start();
-
-            while(running)
+            while (running)
             {
                 int start = DateTime.Now.Millisecond;
-
                 Console.SetCursorPosition(0, 0);
-
-                switch(menustate)
+                switch (menustate)
                 {
                     case 2:
                         view.GetAnyInput();
@@ -54,10 +43,7 @@ namespace Lp2EpocaEspecial.ConsoleApp
                     case 4:
                         view.GetMenuInput();
                         break;
-
                 }
-
-
                 foreach (IGameObject gObj in gameObjects) gObj.Update();
                 Render(view);
                 if (start + msPerFrame - DateTime.Now.Millisecond >= 0)
@@ -65,65 +51,45 @@ namespace Lp2EpocaEspecial.ConsoleApp
                     Thread.Sleep(
                         start + msPerFrame - DateTime.Now.Millisecond);
                 }
-
             }
-
             foreach (GameObject gObj in gameObjects) gObj.Finish();
         }
-
         private void Render(IMenuView view)
         {
             buffer2D.Swap();
             view.RenderAnimation(buffer2D);
         }
-
         private void SetupScene()
         {
-
             GameObject animation;
             animation = new GameObject("Animation");
             animation.AddComponent(new AnimationComponent(buffer2D));
             gameObjects.Add(animation);
-  
         }
-
         public void ShowRulesAction()
         {
             menustate = 2;
             menuModel.OnShowRules();
-
         }
-
         public void ShowAuthorAction()
         {
             menustate = 3;
             menuModel.OnShowAuthor();
         }
-
         public void StartGameAction()
         {
             menustate = 1;
-
             menuModel.OnStartGame();
             gameController.RunGame(gameView);
-
         }
-
         public void ShowMenuAction()
         {
             menustate = 4;
             menuModel.OnShowMenu();
         }
-
         public void Quit()
         {
             running = false;
         }
-
-
- 
-
-
     }
-
 }

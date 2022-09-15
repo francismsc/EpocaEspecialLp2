@@ -1,33 +1,22 @@
 ﻿using Lp2EpocaEspecial.Common;
-using System;
-using System.Collections.Concurrent;
-
 namespace Lp2EpocaEspecial.ConsoleApp
 {
-
     public class GameView : IGameView
     {
-
-
         public GameView(GameModel gameModel)
         {
-
             gameModel.ShowPlayer1Turn += ShowPlayer1Turn;
             gameModel.ShowPlayer2Turn += ShowPlayer2Turn;
             gameModel.ShowVictoryP1 += RenderVictoryP1;
             gameModel.ShowVictoryP2 += RenderVictoryP2;
         }
-
         public void Start()
         {
             ShowPlayer1Turn();
         }
-
-
         public void RenderMap(
         DoubleBuffer2D<Point> db)
         {
-
             Console.SetCursorPosition(0, 10);
             for (int y = 0; y < db.YDim; y++)
             {
@@ -48,7 +37,6 @@ namespace Lp2EpocaEspecial.ConsoleApp
                         {
                             Console.Write(((char)db[x, y].vertex.value));
                         }
-
                         if (x != db.XDim - 1 && y != 0)
                         {
                             Console.Write('-');
@@ -57,9 +45,7 @@ namespace Lp2EpocaEspecial.ConsoleApp
                         {
                             Console.Write(" ");
                         }
-
                     }
-
                 }
                 if (y == 0)
                 {
@@ -75,7 +61,6 @@ namespace Lp2EpocaEspecial.ConsoleApp
                 }
             }
         }
-
         public void RenderAnimation(DoubleBuffer2D<char> bufferAnimation)
         {
             Console.SetCursorPosition(0, 0);
@@ -85,37 +70,31 @@ namespace Lp2EpocaEspecial.ConsoleApp
                 {
                     Console.Write(bufferAnimation[bufferX, bufferY]);
                 }
-
             }
         }
-
         public void ShowPlayer1Turn()
         {
             Console.SetCursorPosition(0, 6);
             Console.WriteLine("\t--It's your turn!--");
             Console.WriteLine("\t--Whites Pieces!--");
         }
-
         public void ShowPlayer2Turn()
         {
             Console.SetCursorPosition(0, 6);
             Console.WriteLine("\t--It's your turn!--");
             Console.WriteLine("\t--Black Pieces!--");
         }
-
         public void ShowEscapeMessage()
         {
             Console.SetCursorPosition(0, 17);
             Console.WriteLine("Press Escape at any moment to go back to the menu");
         }
-
         public void RenderVictoryP1()
         {
             Console.SetCursorPosition(0, 6);
             Console.WriteLine("\tThe Game has Ended");
             Console.WriteLine("\t White Pieces Won");
         }
-
         public void RenderVictoryP2()
         {
             Console.SetCursorPosition(0, 6);
@@ -123,5 +102,4 @@ namespace Lp2EpocaEspecial.ConsoleApp
             Console.WriteLine("\t Black Pieces Won");
         }
     }
-
 }

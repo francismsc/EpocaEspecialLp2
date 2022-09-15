@@ -1,6 +1,5 @@
 using Lp2EpocaEspecial.Common;
 using System.Collections.Concurrent;
-
 namespace Lp2EpocaEspecial.ConsoleApp
 {
     public class MenuView : IMenuView
@@ -8,7 +7,6 @@ namespace Lp2EpocaEspecial.ConsoleApp
         private readonly IMenuController menuController;
         private BlockingCollection<ConsoleKey> input;
         private Thread inputThread;
-
         public MenuView(IMenuController menuController, MenuModel menuModel)
         {
             this.menuController = menuController;
@@ -16,19 +14,16 @@ namespace Lp2EpocaEspecial.ConsoleApp
             menuModel.ShowAuthor += RenderAuthor;
             menuModel.StartGame += StartGame;
             menuModel.ShowMenu += RenderMenu;
-
             input = new BlockingCollection<ConsoleKey>();
             inputThread = new Thread(ReadKeys);
             inputThread.Start();
         }
-
-        public void Start() 
+        public void Start()
         {
             RenderMenu();
         }
         public void GetMenuInput()
         {
-
             ConsoleKey key;
             if (input.TryTake(out key))
             {
@@ -54,12 +49,10 @@ namespace Lp2EpocaEspecial.ConsoleApp
                     default:
                         Console.WriteLine("\tUnknown option!");
                         Console.WriteLine("\tPress 4 to go back!");
-
                         break;
                 }
             }
         }
-
         public void GetAnyInput()
         {
             ConsoleKey key;
@@ -78,12 +71,10 @@ namespace Lp2EpocaEspecial.ConsoleApp
                 }
             }
         }
-
         public void Finish()
         {
             Console.WriteLine("\n=== Bye! ===");
         }
-
         public void RenderAnimation(DoubleBuffer2D<char> bufferAnimation)
         {
             {
@@ -94,11 +85,9 @@ namespace Lp2EpocaEspecial.ConsoleApp
                     {
                         Console.Write(bufferAnimation[bufferX, bufferY]);
                     }
-
                 }
             }
         }
-
         private void RenderRules()
         {
             Console.WriteLine("\n--The Rules--");
@@ -107,18 +96,14 @@ namespace Lp2EpocaEspecial.ConsoleApp
                 " along the marked line, to an adjacent empty point");
             Console.WriteLine("The game is over when one of the players" +
                 " is trapped and cannot move. His opponent is declared the winner.");
-
             Console.WriteLine("\n--Controls--");
             Console.WriteLine("To move a piece in your turn press the number key" +
                 "that corresponds to the number of the piece you wanna move on the board");
             Console.WriteLine("Press Escape to go back to the menu at any point in the game");
-
             Console.WriteLine("\nPress any key to go back to the Menu");
         }
-
         private void RenderAuthor()
         {
-
             Console.WriteLine("\nAuthor:");
             Console.WriteLine("Francisco Costa a21903228");
             Console.WriteLine("\nPress any key to go back to the Menu");
@@ -127,10 +112,8 @@ namespace Lp2EpocaEspecial.ConsoleApp
         {
             Console.WriteLine("\nLet the games Begin");
         }
-
         public void RenderMenu()
         {
-
             Console.WriteLine("\n=== Welcome to the Madelinette ===");
             Console.WriteLine("Press 1 to Start playing Madelinette");
             Console.WriteLine("Press 2 to see the rules of the game");
@@ -138,7 +121,6 @@ namespace Lp2EpocaEspecial.ConsoleApp
             Console.WriteLine("Press 4 to show this menu again");
             Console.WriteLine("Press escape to quit the game at any moment");
         }
-
         private void ReadKeys()
         {
             ConsoleKey ck;
@@ -149,7 +131,5 @@ namespace Lp2EpocaEspecial.ConsoleApp
                 input.Add(ck);
             } while (ck != ConsoleKey.Escape);
         }
-
     }
-
 }
