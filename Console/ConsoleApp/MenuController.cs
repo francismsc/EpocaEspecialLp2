@@ -33,6 +33,7 @@ namespace Lp2EpocaEspecial.ConsoleApp
             SetupScene();
             menustate = 4;
             Console.Clear();
+            Console.CursorVisible = false;
             running = true;
             view.Start();
 

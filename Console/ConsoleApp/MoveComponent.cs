@@ -60,7 +60,8 @@ namespace Lp2EpocaEspecial.ConsoleApp
                 if(map!=null)
                 foreach (Point points in map.points)
                 {
-                    if (points.vertex.number == pieceToMove && points.vertex.value == valueToMove)
+                    if (points.vertex.number == pieceToMove && 
+                        points.vertex.value == valueToMove)
                     {
                         
                         foreach (Point point in points.connections)

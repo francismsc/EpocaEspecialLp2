@@ -1,4 +1,3 @@
-using System;
 using Lp2EpocaEspecial.Common;
 using System.Collections.Concurrent;
 

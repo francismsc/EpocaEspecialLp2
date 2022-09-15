@@ -38,9 +38,11 @@ namespace Lp2EpocaEspecial.ConsoleApp
                         Console.Write(' ');
                     else
                     {
-                        if (db[x, y].vertex.value == Value.Black || db[x, y].vertex.value == Value.White || db[x, y].vertex.value == Value.None)
+                        if (db[x, y].vertex.value == Value.Black || db[x, y].
+                            vertex.value == Value.White || db[x, y].vertex.value == Value.None)
                         {
-                            Console.Write((db[x, y].vertex.number.ToString()) + (char)db[x, y].vertex.value);
+                            Console.Write((db[x, y].vertex.number.ToString())
+                             + (char)db[x, y].vertex.value);
                         }
                         else
                         {
