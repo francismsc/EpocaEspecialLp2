@@ -17,15 +17,11 @@ namespace Lp2EpocaEspecial.Common
                 playerTurn = 2;
                 colorPiecePlaying = Value.Black;
                 OnPlayer2Turn();
-            }else if (playerTurn == 2)
+            }else
             {
                 playerTurn = 1;
                 colorPiecePlaying = Value.White;
                 OnPlayer1Turn();
-            }
-            else
-            {
-                playerTurn = 3;
             }
         }
 
@@ -43,7 +39,7 @@ namespace Lp2EpocaEspecial.Common
 
         public bool CheckWinCondition(Map gamemap)
         {
-            
+ 
 
             foreach(Point points in gamemap.points)
             {
@@ -66,14 +62,20 @@ namespace Lp2EpocaEspecial.Common
         {
             if (playerTurn == 2)
             {
+<<<<<<< HEAD
  
                 playerTurn = 3;
+=======
+>>>>>>> 94396e0ef2b967fea8ee5993f15ebf19522cd0af
                 ShowVictoryP2?.Invoke();
             }
             else if(playerTurn == 1)
             {
+<<<<<<< HEAD
 
                 playerTurn = 3;
+=======
+>>>>>>> 94396e0ef2b967fea8ee5993f15ebf19522cd0af
                 ShowVictoryP1?.Invoke();
             }
         }
