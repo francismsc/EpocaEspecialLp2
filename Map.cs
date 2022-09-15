@@ -1,4 +1,6 @@
-﻿namespace Lp2EpocaEspecial.Common
+﻿using System.Collections.Generic;
+
+namespace Lp2EpocaEspecial.Common
 {
     public class Map
     {

@@ -1,4 +1,5 @@
-﻿namespace Lp2EpocaEspecial.Common
+﻿using System;
+namespace Lp2EpocaEspecial.Common
 {
     public class GameModel
     {

@@ -1,3 +1,4 @@
+using System;
 namespace Lp2EpocaEspecial.Common
 {
     public class MenuModel
@@ -46,6 +47,7 @@ namespace Lp2EpocaEspecial.Common
                 
             }
         }
+#nullable enable
         public event Action? ShowRules;
         public event Action? StartGame;
         public event Action? ShowAuthor;
