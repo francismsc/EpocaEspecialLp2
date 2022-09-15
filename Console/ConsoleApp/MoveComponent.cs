@@ -10,11 +10,11 @@ namespace Lp2EpocaEspecial.ConsoleApp
 	public class MoveComponent : Component
 	{
         private KeyReaderComponent? keyReader;
-        public Map? map;
-        public GameModel gameModel;
+        private Map? map;
+        private GameModel gameModel;
         private Value valueToMove;
         private BackgroundComponent? background;
-        public GameObject? playerComponent, backgroundComponent;
+        private GameObject? playerComponent, backgroundComponent;
 
 
 

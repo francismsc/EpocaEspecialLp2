@@ -5,7 +5,7 @@ namespace Lp2EpocaEspecial.ConsoleApp
 	{
 		private IBuffer2D<char> buffer;
 
-		int frames = 0;
+		private int frames = 0;
 		public AnimationComponent(IBuffer2D<char> buffer)
 		{
 			this.buffer = buffer;
