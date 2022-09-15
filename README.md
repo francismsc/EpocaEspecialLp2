@@ -1,9 +1,7 @@
 ## Projeto Época especial Lp2
 # Madelinette 
-
 ## Autoria:
 Francisco Costa(21903228)
-
 ### Informação do Trabalho:
 #### Francisco Costa
   - 100% do projeto
@@ -11,7 +9,7 @@ Francisco Costa(21903228)
 ### Repositório Git
 https://github.com/francismsc/EpocaEspecialLp2
 
-##
+## Arquitetura da solução
 No desenvolvimento deste projeto tentei fazer uso do design MVC, mantendo
 as classes separadas conforme as funções de interface, organização de dados e interação.
 
