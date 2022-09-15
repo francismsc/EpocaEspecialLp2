@@ -1,6 +1,9 @@
 using System;
 namespace Lp2EpocaEspecial.Common
 {
+    /// <summary>
+    /// Contains the menustate data and calls invokes the menu events
+    /// </summary>
     public class MenuModel
     {
         public int menustate = 4;
