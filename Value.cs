@@ -1,8 +1,5 @@
-using System;
-
 namespace Lp2EpocaEspecial.Common
 {
-
     public enum Value
     {
         Black = 'B',
@@ -10,7 +7,6 @@ namespace Lp2EpocaEspecial.Common
         None = 'O',
         OutofGame = ' ',
         Connection = '-'
-
         
     }
 }
