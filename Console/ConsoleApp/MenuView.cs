@@ -87,8 +87,17 @@ namespace Lp2EpocaEspecial.ConsoleApp
 
         public void RenderAnimation(DoubleBuffer2D<char> bufferAnimation)
         {
-            Console.SetCursorPosition(50, 0);
-            Console.Write(bufferAnimation[0, 0]);
+            {
+                Console.SetCursorPosition(0, 0);
+                for (int bufferY = 0; bufferY < bufferAnimation.YDim; bufferY++)
+                {
+                    for (int bufferX = 0; bufferX < bufferAnimation.XDim; bufferX++)
+                    {
+                        Console.Write(bufferAnimation[bufferX, bufferY]);
+                    }
+
+                }
+            }
         }
 
         private void RenderRules()
@@ -111,7 +120,7 @@ namespace Lp2EpocaEspecial.ConsoleApp
         private void RenderAuthor()
         {
 
-            Console.WriteLine("\nAutores:");
+            Console.WriteLine("\nAuthor:");
             Console.WriteLine("Francisco Costa a21903228");
             Console.WriteLine("\nPress any key to go back to the Menu");
         }

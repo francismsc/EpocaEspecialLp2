@@ -18,7 +18,7 @@ namespace Lp2EpocaEspecial.ConsoleApp
         {
             this.menuModel = menuModel;
             gameObjects = new List<IGameObject>();
-            buffer2D = new DoubleBuffer2D<char>(1, 1);
+            buffer2D = new DoubleBuffer2D<char>(30, 1);
             GameModel gameModel = new GameModel();
             this.gameController = new GameController(gameModel);
             this.gameView = new GameView(gameModel);
@@ -76,7 +76,7 @@ namespace Lp2EpocaEspecial.ConsoleApp
             view.RenderAnimation(buffer2D);
         }
 
-        public void SetupScene()
+        private void SetupScene()
         {
 
             GameObject animation;

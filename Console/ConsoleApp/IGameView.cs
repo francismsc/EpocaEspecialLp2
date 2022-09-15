@@ -12,6 +12,8 @@ namespace Lp2EpocaEspecial.ConsoleApp
 
         void Start();
 
+        void ShowEscapeMessage();
+
 
     }
 }
