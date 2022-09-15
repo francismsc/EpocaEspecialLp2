@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-
 public class KeyReader : MonoBehaviour
 {
     public char? pieceToMove { get; private set; }
@@ -11,7 +10,6 @@ public class KeyReader : MonoBehaviour
     {
         pieceToMove = null;
     }
-
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Alpha1))
@@ -46,16 +44,13 @@ public class KeyReader : MonoBehaviour
             if(rayhit.collider != null)
             {
                 PointObjectReader(rayhit.transform.gameObject);
-
             }
         }else
         {
             pieceToMove = null;
         }
-
         
     }
-
     public void PointObjectReader(GameObject pointObject)
     {
         switch(pointObject.transform.GetChild(0).GetChild(0).
@@ -81,12 +76,6 @@ public class KeyReader : MonoBehaviour
                 break;
             default:
                 break;
-
         }
-
-
     }
-
-
-
 }

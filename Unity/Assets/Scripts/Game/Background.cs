@@ -2,20 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Lp2EpocaEspecial.Common;
-
 public class Background : MonoBehaviour
 {
     public Map gameMap { get; set; }
     public List<GameObject> ObjectsList;
-
     public void Awake()
     {
         gameMap = SetupMap();
-
     }
     public Map SetupMap()
     {
-
         Vertex vertex1 = new Vertex('1', Value.Black);
         Vertex vertex2 = new Vertex('9', Value.OutofGame);
         Vertex vertex3 = new Vertex('2', Value.White);
@@ -25,7 +21,6 @@ public class Background : MonoBehaviour
         Vertex vertex7 = new Vertex('5', Value.Black);
         Vertex vertex8 = new Vertex('9', Value.Connection);
         Vertex vertex9 = new Vertex('6', Value.White);
-
         List<Point> points = new List<Point>();
         Point point1 = new Point('1', vertex1);
         Point point2 = new Point('2', vertex3);
@@ -36,7 +31,6 @@ public class Background : MonoBehaviour
         Point point7 = new Point('7', vertex9);
         Point point8 = new Point('8', vertex2);
         Point point9 = new Point('9', vertex8);
-
         points.Add(point1);
         points.Add(point8);
         points.Add(point2);
@@ -46,52 +40,29 @@ public class Background : MonoBehaviour
         points.Add(point6);
         points.Add(point9);
         points.Add(point7);
-
         point1.connections.Add(point3);
         point1.connections.Add(point4);
-
         point2.connections.Add(point5);
         point2.connections.Add(point4);
-
         point3.connections.Add(point1);
         point3.connections.Add(point4);
         point3.connections.Add(point6);
-
         point4.connections.Add(point1);
         point4.connections.Add(point2);
         point4.connections.Add(point3);
         point4.connections.Add(point5);
         point4.connections.Add(point6);
         point4.connections.Add(point7);
-
         point5.connections.Add(point2);
         point5.connections.Add(point4);
         point5.connections.Add(point7);
-
         point6.connections.Add(point3);
         point6.connections.Add(point4);
         point6.connections.Add(point7);
-
         point7.connections.Add(point4);
         point7.connections.Add(point5);
         point7.connections.Add(point6);
-
-
-
-
-
-
-
-
         gameMap = new Map(points);
-
-
-
         return gameMap;
     }
-
-
-
-
-
 }
