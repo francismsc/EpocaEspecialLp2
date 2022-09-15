@@ -1,6 +1,10 @@
 using Lp2EpocaEspecial.Common;
 using UnityEngine;
 using Vertex = Lp2EpocaEspecial.Common.Vertex;
+
+/// <summary>
+/// Makes the movements between pieces
+/// </summary>
 public class Movement : MonoBehaviour
 {
     [SerializeField]private KeyReader keyReader;
@@ -14,6 +18,13 @@ public class Movement : MonoBehaviour
         keyReader = gameObject.GetComponent<KeyReader>();
         gameMap = gameObject.GetComponentInParent<Background>().gameMap;
     }
+
+    /// <summary>
+    /// Checks playerturn to know what color is moving
+    /// Waits for input
+    /// Checks if the move was legal
+    /// Calls Swap to change the positions to make the move
+    /// </summary>
     public void Update()
     {
         if (gameModel.playerTurn == 1)
@@ -48,6 +59,11 @@ public class Movement : MonoBehaviour
                 }
         }
     }
+    /// <summary>
+    /// Swaps the positions of the vertex data to make a move
+    /// </summary>
+    /// <param name="pointMoved">Point the player wanted to move</param>
+    /// <param name="pointNone">Point where the value was None</param>
     public void Swap(Point pointMoved, Point pointNone)
     {
         Vertex temp = pointMoved.vertex;

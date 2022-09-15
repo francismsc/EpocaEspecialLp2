@@ -1,12 +1,10 @@
 using Lp2EpocaEspecial.Common;
-using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Diagnostics.Tracing;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.UI;
+/// <summary>
+/// Controls the UI and board display to the player
+/// </summary>
 public class GameView : MonoBehaviour
 {
     private Color black  = new Color (0.1f,0.1f,0.1f,1);
@@ -32,6 +30,11 @@ public class GameView : MonoBehaviour
         gameModel.ShowVictoryP1 += RenderVictoryP1;
         gameModel.ShowVictoryP2 += RenderVictoryP2;
     }
+    /// <summary>
+    /// Changes the color of the sprites to represent the new color of the point
+    /// </summary>
+    /// <param name="point"></param>
+    /// <param name="color"></param>
     public void ChangeColor(GameObject point, Value color)
     {
         if(color == Value.White)
@@ -45,6 +48,14 @@ public class GameView : MonoBehaviour
             point.GetComponent<SpriteRenderer>().color = red;
         }
     }
+
+    /// <summary>
+    /// Renders the gameMap sprites
+    /// Calls to change the color of the sprites
+    /// Calls to change the text of the sprites
+    /// </summary>
+    /// <param name="gameMap"></param>
+    /// <param name="points"></param>
     public void RenderMap(Map gameMap, List<GameObject> points)
     {
         int counter = 0;
@@ -63,6 +74,9 @@ public class GameView : MonoBehaviour
     {
         this.gameModel = gameModel;
     }
+    /// <summary>
+    /// Displays the objects that contain the message of who is playing
+    /// </summary>
     public void ShowPlayer1Turn()
     {
         Player2Turn.SetActive(false);
@@ -73,6 +87,9 @@ public class GameView : MonoBehaviour
         Player2Turn.SetActive(true);
         Player1Turn.SetActive(false);
     }
+    /// <summary>
+    /// Displays the objects that contain the victory screen
+    /// </summary>
     public void RenderVictoryP1()
     {
         Player1Victory.SetActive(true);

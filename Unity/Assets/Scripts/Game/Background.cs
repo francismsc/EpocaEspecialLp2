@@ -2,6 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Lp2EpocaEspecial.Common;
+/// <summary>
+/// Contains the map of the game.
+/// Also setups the map of the game
+/// </summary>
 public class Background : MonoBehaviour
 {
     public Map gameMap { get; set; }

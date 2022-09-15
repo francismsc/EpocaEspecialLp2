@@ -1,7 +1,9 @@
 using Lp2EpocaEspecial.Common;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+/// <summary>
+/// Contains an Instance of the gamemodel
+/// </summary>
+
 [CreateAssetMenu(menuName = "GameModelContainer")]
 public class GameModelContainer : ScriptableObject
 {

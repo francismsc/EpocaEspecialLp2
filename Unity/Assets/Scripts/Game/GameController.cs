@@ -2,6 +2,9 @@ using Lp2EpocaEspecial.Common;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+/// <summary>
+/// Controls the gameLoop of the game
+/// </summary>
 public class GameController : MonoBehaviour
 {
     [SerializeField] private ScriptableObjectContainer gameModelObjectContainer;
@@ -24,9 +27,12 @@ public class GameController : MonoBehaviour
     }
     public void GameEnded(GameModel gameModel)
     {
-        Debug.Log(gameModel.playerTurn);
         gameModel.OnGameEnd();
     }
+    /// <summary>
+    /// Checks who is playing and calls the method to update the GameObjects
+    /// </summary>
+    /// <param name="gameModel"></param>
     public void CheckPlayerTurn(GameModel gameModel)
     {
         switch (gameModel.playerTurn)
@@ -41,6 +47,10 @@ public class GameController : MonoBehaviour
                 break;
         }
     }
+
+    /// <summary>
+    /// Activates the objects that contain the playerTurn scripts move and keyreader gameObjects
+    /// </summary>
     public void Player1Turn()
     {
         Player2.SetActive(false);
